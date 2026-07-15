@@ -14,7 +14,7 @@ class AuthController
 
     public function login(string $username, string $password): array
     {
-        $username = trim($username);
+        $username = htmlspecialchars(trim($username));
         $password = trim($password);
 
         if ($username === "" || $password === "") {
@@ -22,6 +22,24 @@ class AuthController
                 "success" => false,
                 "message" => "Username and password are required."
             ];
+        }
+
+        if (strlen($username) < 3) {
+
+            return [
+                "success" => false,
+                "message" => "Username is too short."
+            ];
+
+        }
+
+        if (strlen($password) < 8) {
+
+            return [
+                "success" => false,
+                "message" => "Password is too short."
+            ];
+
         }
 
         $user = $this->userModel->verifyLogin($username, $password);

@@ -53,6 +53,8 @@
 
                     <input
                         type="text"
+                        minlength="3"
+                        maxlength="50"
                         id="username"
                         name="username"
                         placeholder="Enter your username"
@@ -72,14 +74,16 @@
 
                     <div class="password-group">
 
-                        <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            placeholder="Enter your password"
-                            autocomplete="current-password"
-                            required
-                        >
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        minlength="8"
+                        maxlength="255"
+                        required
+                    >
 
                         <button
                             type="button"

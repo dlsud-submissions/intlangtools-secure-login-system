@@ -108,6 +108,16 @@
 
             </form>
 
+            <p class="auth-link">
+
+                Don't have an account?
+
+                <a href="register.php">
+                    Register here
+                </a>
+
+            </p>
+
         </div>
 
     </div>

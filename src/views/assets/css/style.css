@@ -220,3 +220,27 @@ body {
     padding: 12px;
   }
 }
+
+/*
+|--------------------------------------------------------------------------
+| Authentication Links
+|--------------------------------------------------------------------------
+*/
+
+.auth-link {
+  margin-top: 20px;
+  text-align: center;
+  color: #6b7280;
+}
+
+.auth-link a {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.auth-link a:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}

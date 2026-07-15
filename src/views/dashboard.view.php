@@ -36,7 +36,17 @@
             </h1>
 
             <p>
-                You have successfully logged in.
+                You have successfully logged in to the Secure Login System.
+            </p>
+
+            <p>
+
+                Username:
+
+                <strong>
+                    <?= htmlspecialchars($_SESSION["user"]["username"]) ?>
+                </strong>
+
             </p>
 
             <a

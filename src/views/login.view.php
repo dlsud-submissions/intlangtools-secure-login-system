@@ -30,6 +30,14 @@
                 Please sign in to continue.
             </p>
 
+            <?php if (!empty($success)): ?>
+
+                <div class="success-alert">
+                    <?= htmlspecialchars($success) ?>
+                </div>
+
+            <?php endif; ?>
+
             <?php if (!empty($error)): ?>
 
                 <div class="alert">

@@ -77,7 +77,8 @@ class RegisterController
         );
 
         return [
-            "success" => true
+            "success" => true,
+            "message" => "Registration successful. You may now log in."
         ];
     }
 }

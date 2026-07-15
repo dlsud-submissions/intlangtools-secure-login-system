@@ -112,25 +112,36 @@
 
             <div class="form-group">
 
-                <label for="confirm_password">
-                    Confirm Password
-                </label>
+              <label for="confirm_password">
+                  Confirm Password
+              </label>
 
-                <input
-                    type="password"
-                    id="confirm_password"
-                    name="confirm_password"
-                    minlength="8"
-                    maxlength="255"
-                    required
-                >
+              <div class="password-group">
 
-                <small
-                    class="error"
-                    id="confirmPasswordError"
-                ></small>
+                  <input
+                      type="password"
+                      id="confirm_password"
+                      name="confirm_password"
+                      minlength="8"
+                      maxlength="255"
+                      required
+                  >
 
-            </div>
+                  <button
+                      type="button"
+                      class="toggle-password"
+                  >
+                      Show
+                  </button>
+
+              </div>
+
+              <small
+                  class="error"
+                  id="confirmPasswordError"
+              ></small>
+
+          </div>
 
             <button
                 class="login-button"

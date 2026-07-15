@@ -7,6 +7,15 @@ require_once __DIR__ . "/../db/connect.php";
 redirectIfAuthenticated();
 
 $error = "";
+$success = "";
+
+if (isset($_SESSION["success"])) {
+
+    $success = $_SESSION["success"];
+
+    unset($_SESSION["success"]);
+
+}
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 

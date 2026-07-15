@@ -244,3 +244,15 @@ body {
   color: var(--primary-hover);
   text-decoration: underline;
 }
+
+.success-alert {
+  margin-bottom: 20px;
+  padding: 12px;
+
+  border-left: 5px solid var(--success);
+
+  background: #dcfce7;
+  color: var(--success);
+
+  border-radius: 8px;
+}

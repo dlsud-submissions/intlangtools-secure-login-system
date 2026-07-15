@@ -1,96 +1,124 @@
-const form = document.getElementById("loginForm");
+const loginForm = document.getElementById("loginForm");
+const registerForm = document.getElementById("registerForm");
 
-if (form) {
-  const username = document.getElementById("username");
-  const password = document.getElementById("password");
+/*
+|--------------------------------------------------------------------------
+| Password Toggle
+|--------------------------------------------------------------------------
+*/
 
-  const usernameError = document.getElementById("usernameError");
-  const passwordError = document.getElementById("passwordError");
+document.querySelectorAll(".toggle-password").forEach((button) => {
+  button.addEventListener("click", () => {
+    let input = button.previousElementSibling;
 
-  const togglePassword = document.getElementById("togglePassword");
-
-  /*
-    |--------------------------------------------------------------------------
-    | Show / Hide Password
-    |--------------------------------------------------------------------------
-    */
-
-  togglePassword.addEventListener("click", () => {
-    if (password.type === "password") {
-      password.type = "text";
-      togglePassword.textContent = "Hide";
+    if (input.type === "password") {
+      input.type = "text";
+      button.textContent = "Hide";
     } else {
-      password.type = "password";
-      togglePassword.textContent = "Show";
+      input.type = "password";
+      button.textContent = "Show";
     }
   });
+});
 
-  /*
-    |--------------------------------------------------------------------------
-    | Validation
-    |--------------------------------------------------------------------------
-    */
+/*
+|--------------------------------------------------------------------------
+| Login Validation
+|--------------------------------------------------------------------------
+*/
 
-  form.addEventListener("submit", (event) => {
+if (loginForm) {
+  loginForm.addEventListener("submit", (event) => {
+    const username = document.getElementById("username");
+    const password = document.getElementById("password");
+
+    const usernameError = document.getElementById("usernameError");
+    const passwordError = document.getElementById("passwordError");
+
     usernameError.textContent = "";
     passwordError.textContent = "";
 
-    let isValid = true;
+    let valid = true;
 
     const usernameValue = username.value.trim();
     const passwordValue = password.value.trim();
 
-    // Username
-
     if (usernameValue === "") {
       usernameError.textContent = "Username is required.";
-
-      isValid = false;
+      valid = false;
     }
-
-    // Password
 
     if (passwordValue === "") {
       passwordError.textContent = "Password is required.";
-
-      isValid = false;
-    } else {
-      if (passwordValue.length < 8) {
-        passwordError.textContent = "Password must be at least 8 characters.";
-
-        isValid = false;
-      } else if (!/[A-Z]/.test(passwordValue)) {
-        passwordError.textContent =
-          "Password must contain an uppercase letter.";
-
-        isValid = false;
-      } else if (!/[a-z]/.test(passwordValue)) {
-        passwordError.textContent = "Password must contain a lowercase letter.";
-
-        isValid = false;
-      } else if (!/[0-9]/.test(passwordValue)) {
-        passwordError.textContent = "Password must contain a number.";
-
-        isValid = false;
-      }
+      valid = false;
     }
 
-    if (!isValid) {
+    if (!valid) {
       event.preventDefault();
     }
   });
+}
 
-  /*
-    |--------------------------------------------------------------------------
-    | Trim Leading/Trailing Spaces
-    |--------------------------------------------------------------------------
-    */
+/*
+|--------------------------------------------------------------------------
+| Registration Validation
+|--------------------------------------------------------------------------
+*/
 
-  username.addEventListener("blur", () => {
-    username.value = username.value.trim();
-  });
+if (registerForm) {
+  registerForm.addEventListener("submit", (event) => {
+    const username = document.getElementById("username");
+    const password = document.getElementById("password");
+    const confirmPassword = document.getElementById("confirm_password");
 
-  password.addEventListener("blur", () => {
-    password.value = password.value.trim();
+    const usernameError = document.getElementById("usernameError");
+    const passwordError = document.getElementById("passwordError");
+    const confirmPasswordError = document.getElementById(
+      "confirmPasswordError",
+    );
+
+    usernameError.textContent = "";
+    passwordError.textContent = "";
+    confirmPasswordError.textContent = "";
+
+    let valid = true;
+
+    const usernameValue = username.value.trim();
+    const passwordValue = password.value.trim();
+    const confirmValue = confirmPassword.value.trim();
+
+    if (usernameValue.length < 3) {
+      usernameError.textContent = "Username must be at least 3 characters.";
+
+      valid = false;
+    }
+
+    if (passwordValue.length < 8) {
+      passwordError.textContent = "Password must be at least 8 characters.";
+
+      valid = false;
+    } else if (!/[A-Z]/.test(passwordValue)) {
+      passwordError.textContent = "Password must contain an uppercase letter.";
+
+      valid = false;
+    } else if (!/[a-z]/.test(passwordValue)) {
+      passwordError.textContent = "Password must contain a lowercase letter.";
+
+      valid = false;
+    } else if (!/[0-9]/.test(passwordValue)) {
+      passwordError.textContent = "Password must contain a number.";
+
+      valid = false;
+    }
+
+    if (passwordValue !== confirmValue) {
+      confirmPasswordError.textContent = "Passwords do not match.";
+
+      valid = false;
+    }
+
+    if (!valid) {
+      event.preventDefault();
+    }
   });
 }

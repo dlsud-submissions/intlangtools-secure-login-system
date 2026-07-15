@@ -1,0 +1,37 @@
+{
+  "name": "intlangtools-secure-login-system",
+  "version": "1.0.0",
+  "description": "A Secure Login System developed using PHP, MySQL, JavaScript, and CSS.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "php -S localhost:8000",
+    "dev": "php -S localhost:8000",
+    "serve": "php -S localhost:8000",
+    "lint": "echo \"No linter configured.\"",
+    "format": "echo \"No formatter configured.\"",
+    "test": "echo \"No tests configured.\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dlsud-submissions/intlangtools-secure-login-system.git"
+  },
+  "keywords": [
+    "php",
+    "mysql",
+    "authentication",
+    "login",
+    "security",
+    "session",
+    "web-development"
+  ],
+  "author": "Matthew E. Sta. Ana",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dlsud-submissions/intlangtools-secure-login-system/issues"
+  },
+  "homepage": "https://github.com/dlsud-submissions/intlangtools-secure-login-system#readme",
+  "engines": {
+    "node": ">=18"
+  }
+}

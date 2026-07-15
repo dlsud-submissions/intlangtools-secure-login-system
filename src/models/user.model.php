@@ -38,4 +38,38 @@ class User
 
         return $user;
     }
+
+    public function usernameExists(string $username): bool
+    {
+        $sql = "SELECT COUNT(*) FROM users WHERE username = :username";
+
+        $stmt = $this->pdo->prepare($sql);
+
+        $stmt->execute([
+            ":username" => $username
+        ]);
+
+        return (bool) $stmt->fetchColumn();
+    }
+
+    public function createUser(string $username, string $password): bool
+    {
+        $sql = "
+            INSERT INTO users (
+                username,
+                password
+            )
+            VALUES (
+                :username,
+                :password
+            )
+        ";
+
+        $stmt = $this->pdo->prepare($sql);
+
+        return $stmt->execute([
+            ":username" => $username,
+            ":password" => md5($password)
+        ]);
+    }
 }
